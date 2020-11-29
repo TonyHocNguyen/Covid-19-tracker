@@ -16,9 +16,9 @@ country_tab.click()
 
 country = input(str("Enter the country name: "))
 
-SearchBox = driver.find_element_by_xpath('//input[@id="singlecountry_header"]/div/div/div/div[1]')
-SearchBox.send_keys(country)
-SearchBox.submit()
+#SearchBox = driver.find_element_by_xpath('//input[@id="singlecountry_header"]/div/div/div/div[1]')
+#SearchBox.send_keys(country)
+#SearchBox.submit()
 
 #SearchButton = driver.find_element_by_xpath('//*[@id="search-icon-legacy"]')
 #SearchButton.click()
