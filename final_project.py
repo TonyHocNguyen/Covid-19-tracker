@@ -1,6 +1,6 @@
 """
-Final project:
-Author:
+Final project: Covid-19 tracker
+Author: Linh Tu
 Time:
 """
 
