@@ -4,7 +4,10 @@ Author: Linh Tu
 Time:
 """
 
-dct_all_symptoms = {'most common symptoms': ['fever', 'dry cough', 'fatigue'], 'less common symptoms': ['aches and pains', 'sore throat', 'diarrhea', 'conjunctivitis', 'headache', 'loss of appetite', 'chills', 'dizziness', 'skin rash', 'vomit'], 'serious symptoms': ['difficulty breathing', 'shortness of breath', 'chest pain', 'loss of movement']}
+dct_all_symptoms = {'most common symptoms': ['fever', 'dry cough', 'fatigue'],
+                    'less common symptoms': ['aches and pains', 'sore throat', 'diarrhea', 'conjunctivitis',
+                                             'headache', 'loss of appetite', 'chills', 'dizziness', 'skin rash', 'vomit'],
+                    'serious symptoms': ['difficulty breathing', 'shortness of breath', 'chest pain', 'loss of movement']}
 dct_level_symptoms = {'less common symptoms' : 1, 'most common symptoms': 2, 'serious symptoms' : 3} 
 """
 USER INPUT
@@ -32,7 +35,8 @@ Part 2: If user have any symptoms
 """
 count_symptoms = []
 print(dct_all_symptoms.values()) #show user list of symptoms to input
-list_of_symptoms = input("From all the symptom above, input every symptom you are experiencing with comma between each. If you have no symptoms listed above, please input None:").split(',')
+list_of_symptoms = input("From all the symptom above, input every symptom you are experiencing with comma between each."
+                         "If you have no symptoms listed above, please input None:").split(',')
 if list_of_symptoms != ['None']:
     for symptom in list_of_symptoms: #from user's inputted info, store if these symptoms is common/serious
         for key, value in dct_all_symptoms.items():
@@ -49,33 +53,24 @@ if list_of_symptoms != ['None']:
                 if level_symptom in key:
                     traveller_status += int(value) 
 
-"""
-Part 3: Store underlyding medical conditions if users have covid-19 symptoms
-        If user has no underlyding medical condition: Keep inputting
-        If yes: Add risk level of being affected by coronavirus to users' health status. Keep inputting
-"""
-            dct_medical_conditions = ['cancer','diabetes','obesity','sickle cell disease','heart conditions', 'weakened immune system', 'Asthma']
-            print(dct_medical_conditions.values()) #give user list of dangerous underlying medical conditions
-            
-            underlying_medical_conditions = (input('Please enter any underlying medical conditions you have above. If not, please input None')).split()
-            if underlying_medical_conditions != ['None']: 
-                for condition in underlying_medical_conditions: #add to the posibility level of user being affected by Coivd-19
-                    traveller_status += 1
-                visit_countries_14_days = (input('Enter every countries you have visited in the last 14 days? If not, please input None')).split()
-                if visit_countries_14_days != 'None':
-                    #check if these countries is in non coronavirus-free countries, if yes, no travelling
-                    #if no, finally check the user's health status 
 
-"""
-Part 4: Show Calculation of the posibility level of user being affected by coronavirus
-        If health status result >= : no travelling
-        If lower: Move to part 
-"""
-            if traveller_status >= 3: #Not a correctr number yet. Need to decide how high the result should be to assume that user is possibly affected
-                print("You may be infected with Coronavirus, please manage your symptoms at home and call doctor before visiting health facility.")
-                return
+dct_medical_conditions = ['cancer','diabetes','obesity','sickle cell disease','heart conditions', 'weakened immune system', 'Asthma']
+print(dct_medical_conditions.values()) #give user list of dangerous underlying medical conditions
 
-"""
-Part 5: If user's health status is fine: Check if the country/countries that traveller want to visit is safe from Covid-19
-"""
+underlying_medical_conditions = (input('Please enter any underlying medical conditions you have above. If not, please input None')).split()
+if underlying_medical_conditions != ['None']: 
+    for condition in underlying_medical_conditions: #add to the posibility level of user being affected by Coivd-19
+        traveller_status += 1
+    visit_countries_14_days = (input('Enter every countries you have visited in the last 14 days? If not, please input None')).split()
+    if visit_countries_14_days != 'None':
+        #check if these countries is in non coronavirus-free countries, if yes, no travelling
+        #if no, finally check the user's health status 
+   
+    
+        if traveller_status >= 3: #Not a correctr number yet. Need to decide how high the result should be to assume that user is possibly affected
+            print("You may be infected with Coronavirus, please manage your symptoms at home and call doctor before visiting health facility.")
+            return
+
+
+
 country = input('What country do you want to visit?')
